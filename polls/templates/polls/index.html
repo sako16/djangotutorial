@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Polls Index</title>
+</head>
+<body>
+    <h1>Son əlavə olunan suallar</h1>
+    {% if latest_question_list %}
+        <ul>
+        {% for question in latest_question_list %}
+            <li>
+                <a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>Hazırda heç bir sual yoxdur.</p>
+    {% endif %}
+</body>
+</html>
